@@ -15,9 +15,6 @@ npm run dev
 npm run build
 node server.js & (Will server files from dist at localhost:8080)
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
 # run unit tests
 npm run unit
 
