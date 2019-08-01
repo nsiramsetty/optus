@@ -1,55 +1,85 @@
 <section class="home" xmlns:v-b-tooltip="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml"
          xmlns:v-on="http://www.w3.org/1999/xhtml">
-  <div class="row" v-if="error">
-    <div class="col-12">
-      <div class="alert alert-dismissible fade show alert-danger" role="alert">
-        <h4 class="alert-heading">
-          <i class="fa fa-exclamation-circle"></i>&nbsp;Error !!
-        </h4>
-        <span v-html="error.toString()"></span>
-      </div>
-    </div>
-  </div>
-  <template v-if="!error">
-    <div class="row mb-4">
-      <div class="col-sm-6 text-center text-sm-left">
-        <h2>Progress Bars Demo</h2>
-      </div>
-      <div class="col-sm-6 text-center text-sm-right">
-        <div class="badge badge-sm badge-success">Limit : {{api_response.limit}}</div>
-      </div>
-    </div>
-    <div class="row mb-4 mt-4" v-for="(barValue,index) in api_response.bars">
-      <div class="col-12 bar-display">
-        <div class="color-display" v-bind:class="barValue > api_response.limit ? 'alert-danger' : 'alert-info'"
-             v-bind:style="{width : (barValue > api_response.limit ? 100 : ((barValue*100)/api_response.limit))+'%'}">
-          &nbsp;
-        </div>
-        <div class="value-display"><h3>{{barValue}}%</h3></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-4 col-lg-4">
-        <div class="form-group">
-          <label for="barSelector">Select Bar</label>
-          <select class="form-control" id="barSelector" name="barSelector" v-model="controllers.selectedBar">
-            <option value="">-- Select Bar --</option>
-            <option v-for="(barValue,index) in api_response.bars" v-bind:value="index">Bar # {{index+1}}</option>
-          </select>
+  <template v-if="isAPILoading">
+    <div class="row" >
+      <div class="col-12">
+        <div class="alert alert-dismissible fade show alert-warning" role="alert">
+          <h4 class="alert-heading">
+            <i class="fa fa-spinner"></i>&nbsp;Loading API Data
+          </h4>
+          <span> Loading API Data..Please wait ...</span>
         </div>
       </div>
-      <div class="col-sm-8 col-lg-8">
-        <div class="row">
-          <div class="col-2 mt-4 text-center" v-for="(buttonValue,index) in api_response.buttons">
-            <div class="form-group">
-              <button type="button" class="btn btn-sm btn-primary" v-bind:disabled="controllers.selectedBar === ''"
-                      v-on:click="changeBarValues(buttonValue)" v-b-tooltip:hover v-bind:title="buttonValue">
-                {{buttonValue}}
-              </button>
-            </div>
+    </div>
+  </template>
+  <template v-else>
+    <template v-if="error">
+      <div class="row">
+        <div class="col-12">
+          <div class="alert alert-dismissible fade show alert-danger" role="alert">
+            <h4 class="alert-heading">
+              <i class="fa fa-exclamation-circle"></i>&nbsp;Error !!
+            </h4>
+            <span v-html="error.toString()"></span>
           </div>
         </div>
       </div>
-    </div>
+    </template>
+    <template v-else>
+      <template v-if="api_response && api_response.bars && api_response.buttons && api_response.limit">
+        <div class="row mb-4">
+          <div class="col-sm-6 text-center text-sm-left">
+            <h2>Progress Bars Demo</h2>
+          </div>
+          <div class="col-sm-6 text-center text-sm-right">
+            <div class="badge badge-sm badge-success">Limit : {{api_response.limit}}</div>
+          </div>
+        </div>
+        <div class="row mb-4 mt-4" v-for="(barValue,index) in api_response.bars">
+          <div class="col-12 bar-display">
+            <div class="color-display" v-bind:class="barValue > api_response.limit ? 'alert-danger' : 'alert-info'"
+                 v-bind:style="{width : (barValue > api_response.limit ? 100 : ((barValue*100)/api_response.limit))+'%'}">
+              &nbsp;
+            </div>
+            <div class="value-display"><h3>{{barValue}}%</h3></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 col-lg-4">
+            <div class="form-group">
+              <label for="barSelector">Select Bar</label>
+              <select class="form-control" id="barSelector" name="barSelector" v-model="controllers.selectedBar">
+                <option value="">-- Select Bar --</option>
+                <option v-for="(barValue,index) in api_response.bars" v-bind:value="index">Bar # {{index+1}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-8 col-lg-8">
+            <div class="row">
+              <div class="col-2 mt-4 text-center" v-for="(buttonValue,index) in api_response.buttons">
+                <div class="form-group">
+                  <button type="button" class="btn btn-sm btn-primary" v-bind:disabled="controllers.selectedBar === ''"
+                          v-on:click="changeBarValues(buttonValue)" v-b-tooltip:hover v-bind:title="buttonValue">
+                    {{buttonValue}}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+      <template v-else>
+        <div class="row">
+          <div class="col-12">
+            <div class="alert alert-dismissible fade show alert-danger" role="alert">
+              <h4 class="alert-heading">
+                <i class="fa fa-exclamation-circle"></i>&nbsp;Error !!
+              </h4>
+              <span>An unknown error occurred. <br>Possible cause : Invalid API Response.</span>
+            </div>
+          </div>
+        </div>
+      </template>
+    </template>
   </template>
 </section>
