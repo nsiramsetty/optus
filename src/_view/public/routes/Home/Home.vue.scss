@@ -1,0 +1,22 @@
+@import "./../../../../../static/styles/variables";
+
+.home {
+  .bar-display {
+    border: 1px solid $brand-light-gray;
+    height: 36px;
+  }
+
+  .value-display {
+    position: relative;
+    top: 5px;
+    text-align: center;
+  }
+
+  .color-display {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 36px;
+    max-width: 100%
+  }
+}

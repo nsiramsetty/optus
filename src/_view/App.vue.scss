@@ -1,0 +1,9 @@
+@import "../../static/styles/default";
+@import "../../static/styles/variables";
+
+.app {
+  .body-container {
+    padding: 30px;
+    min-height: calc(100vh - 135px);
+  }
+}
