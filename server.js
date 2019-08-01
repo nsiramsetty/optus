@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
   res.render(path.join(__dirname + '/dist/index.html'));
 });
 
-const port = 3000;
+const port = 8080;
 
 app.listen(port, (err) => {
   if (err) {
