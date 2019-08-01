@@ -12,19 +12,11 @@ let OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 let env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env;
-
-let inputEnvironment = process.env.npm_config_env;
-if (!inputEnvironment) {
-  inputEnvironment = 'production';
+let inputBuildNumber = process.env.npm_config_buildno;
+if (!inputBuildNumber) {
+  inputBuildNumber = new Date().getTime();
 }
-let envConfig = require('./../env/env_docker_' + process.env.npm_config_env.toLowerCase() + '.config.js');
-let buildno = process.env.npm_config_buildno;
-if(!buildno){
-  buildno=new Date().getTime();
-}
-env.BUILD_NO = buildno;
-
-console.log('webpack.prod.env', env);
+env.BUILD_NO = inputBuildNumber;
 
 let webpackConfig = merge(baseWebpackConfig, {
   module: {

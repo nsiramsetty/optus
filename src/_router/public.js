@@ -4,8 +4,7 @@ import NotFound from '../_view/public/routes/NotFound/NotFound';
 const publicRoutes = [{
   path: '/',
   name: 'home',
-  component: Home,
-  props: true
+  component: Home
 }, {
   path: '/*',
   name: 'not-found',

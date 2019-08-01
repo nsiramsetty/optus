@@ -9,6 +9,8 @@ import VueCookies from 'vue-cookies';
 import App from './_view/App.vue';
 import router from './_router';
 import store from './_store';
+import VRuntimeTemplate from "v-runtime-template";
+
 import {loadProgressBar} from 'axios-progress-bar';
 import {LOADER_CONFIG} from "./_config/LoaderConfig";
 import Toastr from 'vue-toastr';
@@ -17,13 +19,17 @@ import {TOASTR_CONFIG} from "./_config/ToastrConfig";
 Vue.use(Element);
 Vue.use(BootstrapVue);
 Vue.use(VueForm);
+Vue.use(VRuntimeTemplate);
 Vue.use(VueCookies);
+
 Vue.prototype.$http = Axios;
 Vue.config.productionTip = false;
 Vue.use(Toastr, TOASTR_CONFIG);
 loadProgressBar(LOADER_CONFIG);
 
 sync(store, router);
+
+Vue.component('vue-toastr', Toastr);
 
 new Vue({
   el: '#app',

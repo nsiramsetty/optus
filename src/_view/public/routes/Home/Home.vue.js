@@ -20,11 +20,12 @@ export default {
   },
   methods: {
     loadAPIResponse: function () {
-      this.api.doApiRequest("getButtonsConfig", {}, 'ggg', true).then((response) => {
+      this.api.doApiRequest("getButtonsConfig", {}, '', true).then((response) => {
         store.dispatch('UPDATE_API_RESPONSE', response);
-        this.$toastr.s("API Response Loaded Successfully.", CONSTANTS_CONFIG.SUCCESS_HEADING)
+        this.$toastr.s("API Response Loaded Successfully.", CONSTANTS_CONFIG.SUCCESS_HEADING);
       }).catch((err) => {
         this.$set(this, "error", err);
+        this.$toastr.e(err.toString(), CONSTANTS_CONFIG.ERROR_HEADING);
       });
     },
 

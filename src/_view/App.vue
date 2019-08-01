@@ -1,3 +1,3 @@
-<template src="./App.vue.html" lang="html"></template>
-<script src="./App.vue.js" lang="js"></script>
-<style src="./App.vue.scss" lang="scss"></style>
+<template lang="html" src="./App.vue.html"></template>
+<script lang="js" src="./App.vue.js"></script>
+<style lang="scss" src="./App.vue.scss"></style>

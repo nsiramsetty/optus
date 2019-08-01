@@ -1,11 +1,11 @@
 @import "variables";
 
-.table{
+.table {
   margin-bottom: 0;
 }
 
 .selected-row {
-  background: lighten($brand-yellow,40) !important;
+  background: lighten($brand-yellow, 40) !important;
 }
 
 .highlighted-row {
@@ -26,22 +26,23 @@
   vertical-align: middle;
 }
 
-.table tbody td, .table thead th{
+.table tbody td, .table thead th {
   min-width: 120px;
 }
 
-.table tbody td.small-cell, .table thead th.small-cell{
+.table tbody td.small-cell, .table thead th.small-cell {
   min-width: 60px;
 }
 
-.table tbody td.fixed-small-cell, .table thead th.fixed-small-cell{
+.table tbody td.fixed-small-cell, .table thead th.fixed-small-cell {
   min-width: 0 !important;
   width: 60px !important;
 }
 
 .tableFixHead {
   overflow-y: auto;
-  th{
+
+  th {
     position: sticky;
     top: 0;
   }
@@ -52,8 +53,12 @@
 }
 
 @-webkit-keyframes moving-gradient {
-  0% { background-position: -250px 0; }
-  100% { background-position: 250px 0; }
+  0% {
+    background-position: -250px 0;
+  }
+  100% {
+    background-position: 250px 0;
+  }
 }
 
 table {
@@ -61,11 +66,14 @@ table {
     td {
       height: $size-200rem;
       vertical-align: middle;
+
       span {
         display: block;
       }
-      padding-top:$size-100rem;
-      padding-bottom:$size-100rem;
+
+      padding-top: $size-100rem;
+      padding-bottom: $size-100rem;
+
       &.animated-cell {
         span {
           height: $size-200rem;

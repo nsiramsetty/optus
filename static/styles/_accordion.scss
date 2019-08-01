@@ -48,11 +48,11 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.card a{
+.card a {
   color: inherit;
 }
 
-.card .card-header .nav-link{
+.card .card-header .nav-link {
   //min-width: 16vh;
 }
 
@@ -61,21 +61,22 @@
     margin-left: $size-50rem;
   }
 }
+
 .pull-left {
   i {
     margin-right: $size-50rem;
   }
 }
 
-.card.card-light-grey{
-  .card-header{
+.card.card-light-grey {
+  .card-header {
     color: $brand-gray-dark;
     background-color: $brand-light-gray;
   }
 }
 
-.card.card-dark-grey{
-  .card-header{
+.card.card-dark-grey {
+  .card-header {
     color: $brand-white;
     background-color: $brand-gray;
   }

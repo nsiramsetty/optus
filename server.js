@@ -19,12 +19,11 @@ app.get('/', function (req, res) {
   res.render(path.join(__dirname + '/dist/index.html'));
 });
 
-let server = https.createServer({
-  key: fs.readFileSync('./key.pem'),
-  cert: fs.readFileSync('./cert.pem')
-}, app)
-  .listen(process.env.PORT || 8080, function () {
-    let port = server.address().port;
-    console.log("App now running on port", port);
-  });
+const port = 3000;
 
+app.listen(port, (err) => {
+  if (err) {
+    return console.log('something bad happened', err)
+  }
+  console.log(`server is listening on ${port}`);
+});
