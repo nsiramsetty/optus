@@ -14,7 +14,7 @@
   "dependencies": {
     "autoprefixer": "7.2.6",
     "apexcharts": "3.6.4",
-    "auth0-js": "9.8.2",
+    "auth0-js": "9.13.2",
     "awesome-bootstrap-checkbox": "1.0.1",
     "axios": "0.18.0",
     "axios-progress-bar": "1.2.0",
