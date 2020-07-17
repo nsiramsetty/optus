@@ -59,7 +59,7 @@
     "jquery-ui-bundle": "1.12.1",
     "jspdf": "1.5.3",
     "jspdf-autotable": "3.0.13",
-    "lodash": "4.17.11",
+    "lodash": "4.17.19",
     "moment": "latest",
     "node-sass": "4.11.0",
     "ora": "1.4.0",
